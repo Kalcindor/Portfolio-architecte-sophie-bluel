@@ -134,6 +134,43 @@ body {
   font-family: "Work Sans";
   font-size: 14px;
 }
+
+/*Edition mode banner*/
+.edition-mode-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 1000px;
+  width: 100vw;
+  height: 60px;
+  margin-bottom: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edition-mode-banner p {
+  width: 102px;
+  height: 16px;
+  font-family: "Work sans";
+  font-weight: 400;
+  color: #fff;
+  margin: 20px 0 0 0;
+}
+
+#edit-banner-btn {
+  width: 15.6px;
+  height: 15.6px;
+  margin: 20px 5px 0 0;
+  color: #fff;
+}
+
+#auth-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -200,10 +237,72 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
   text-align: center;
   margin-bottom: 1em;
 }
+
+/*portfolio-header*/
+#portfolio .projects-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-projects-btn {
+  display: flex;
+  align-items: center;
+  font-family: "Work Sans";
+  font-weight: 400;
+  font-size: 14px;
+  color: black; /* ou la couleur que tu veux */
+}
+
+#edit-projects-btn img {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+/*portfolio-header-end*/
+
+/*Filters*/
+.category-filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 585px;
+  height: 38px;
+  margin: 40px auto;
+}
+
+.category-filters .filter-btn {
+  width: auto;
+  min-width: 100px;
+  height: 36px;
+  border-radius: 60px;
+  background-color: #fff;
+  border: 1px solid #1d6154;
+  color: #1d6154;
+  font-family: syne;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.category-filters .filter-btn:hover {
+  background-color: #1d6154;
+  color: #fff;
+}
+
+/*Filters-end*/
+
 .gallery,
 .gallery-test {
   width: 100%;
@@ -263,6 +362,9 @@ input[type="submit"] {
 }
 
 #loginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 50%;
   margin: auto;
 }
@@ -270,33 +372,100 @@ input[type="submit"] {
 #loginSection > * {
   text-align: center;
 }
+
 #loginSection h2 {
-  margin-bottom: 20px;
+  font-style: Syne;
+  font-weight: 700px;
+  font-size: 30px;
 }
 
 #loginSection form {
   text-align: left;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
 
 #loginSection input {
-  height: 50px;
+  width: 380px;
+  height: 51px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+#loginSection input[type="submit"] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
 #loginSection label {
   margin: 2em 0 1em 0;
 }
+
 #loginSection textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+#loginSection p {
+  font-style: Work Sans;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+.message {
+  font-size: 1em;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.modal {
+  display: none;
+  z-index: 10;
+}
+
 footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+#body-login {
+  height: 964px;
+}
+
+#body-login main {
+  height: 800px;
+}
+
+#footer-login {
+  height: 60px;
+  width: 1440px;
+  background-color: #fff;
+}
+
+#footer-login nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;

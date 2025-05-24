@@ -13,15 +13,23 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script type="module" src="./script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b6f03ee2e9.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <div class="edition-mode-banner">
+      <i id="edit-banner-btn" class="fa-regular fa-pen-to-square"></i>
+      <p>Mode édition</p>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li>login</li>
+          <li><a id="auth-link" href="./loginPage.html">login</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -51,7 +59,13 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="portfolio-header">
+          <h2>Mes Projets</h2>
+          <div id="edit-projects-btn">
+            <i d="edit-projects-btn" class="fa-regular fa-pen-to-square"></i>
+            <span>Modifier</span>
+          </div>
+        </div>
         <section class="category-filters"></section>
         <!--
         <div class="gallery-test">
@@ -131,6 +145,9 @@
           </figure>
         </div> -->
         <div class="gallery"></div>
+        <div id="modal" class="modal">
+          <p>Je suis dans la modale</p>
+        </div>
       </section>
 
       <section id="contact">

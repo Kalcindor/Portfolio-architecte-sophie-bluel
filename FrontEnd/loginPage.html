@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <script type="module" src="./loginUser.js"></script>
   </head>
-  <body>
+  <body id="body-login">
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -30,16 +30,20 @@
       <section id="loginSection">
         <h2>Log in</h2>
         <form id="loginForm">
+          <div id="globalMessage" class="message"></div>
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" required />
+          <div id="emailError" class="error-message"></div>
           <label for="password">Mot de passe</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
+          <div id="passwordError" class="error-message"></div>
           <input type="submit" value="Se connecter" />
         </form>
+        <p>Mot de passe oublié</p>
       </section>
     </main>
 
-    <footer>
+    <footer id="footer-login">
       <nav>
         <ul>
           <li>Mentions Légales</li>
