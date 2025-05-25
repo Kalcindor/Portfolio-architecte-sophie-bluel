@@ -61,8 +61,8 @@
       <section id="portfolio">
         <div class="portfolio-header">
           <h2>Mes Projets</h2>
-          <div id="edit-projects-btn">
-            <i d="edit-projects-btn" class="fa-regular fa-pen-to-square"></i>
+          <div id="edit-projects">
+            <i id="edit-projects-btn" class="fa-regular fa-pen-to-square"></i>
             <span>Modifier</span>
           </div>
         </div>
@@ -145,9 +145,6 @@
           </figure>
         </div> -->
         <div class="gallery"></div>
-        <div id="modal" class="modal">
-          <p>Je suis dans la modale</p>
-        </div>
       </section>
 
       <section id="contact">
@@ -163,6 +160,18 @@
           <input type="submit" value="Envoyer" />
         </form>
       </section>
+
+      <aside id="modal" class="modal">
+        <div class="modal-content">
+          <span
+            class="close-btn"
+            style="cursor: pointer; float: right; font-size: 1.5rem"
+            >&times;</span
+          >
+          <p>Galerie photo</p>
+          <div class="modal-gallery"></div>
+        </div>
+      </aside>
     </main>
 
     <footer>

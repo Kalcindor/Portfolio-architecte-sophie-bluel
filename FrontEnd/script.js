@@ -1,8 +1,10 @@
+let works = [];
+
 document.addEventListener("DOMContentLoaded", async () => {
   const token = sessionStorage.getItem("token");
   const authLink = document.getElementById("auth-link");
   const editionBanner = document.querySelector(".edition-mode-banner");
-  const editWorksBtn = document.getElementById("edit-projects-btn");
+  const editProjects = document.getElementById("edit-projects");
   const filterBtnList = document.querySelector(".category-filters");
   const header = document.querySelector("header");
 
@@ -30,14 +32,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       authLink.textContent = "login";
       authLink.href = "./loginPage.html";
     }
-    if (editWorksBtn) {
-      editWorksBtn.style.display = "none";
+    if (editProjects) {
+      editProjects.style.display = "none";
     }
   }
 
+  //let works = [];
+  let categories = [];
+
   //API calls for getting works and categories
-  const works = await getFromApi("works");
-  const categories = await getFromApi("categories");
+  works = await getFromApi("works");
+  categories = await getFromApi("categories");
 
   console.log("Tableau des projets", works);
   console.log("Tableau des catégories", categories);
@@ -46,6 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   generateGallery(works);
   generateFiltersBtn(categories);
   displayFilteredWorks();
+  setupModal();
 });
 
 async function getFromApi(endPoint) {
@@ -114,5 +120,50 @@ function displayFilteredWorks() {
         }
       });
     });
+  });
+}
+
+function generateModalGallery(works) {
+  const modalGallery = document.querySelector(".modal-gallery");
+
+  if (!modalGallery) return;
+
+  modalGallery.innerHTML = "";
+
+  works.forEach((work) => {
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+
+    figure.append(img);
+    modalGallery.appendChild(figure);
+  });
+}
+
+function setupModal() {
+  const modal = document.getElementById("modal");
+  const openModalBtn = document.getElementById("edit-projects-btn");
+  const closeModalBtn = modal.querySelector(".close-btn");
+
+  console.log("aaa1", { modal, openModalBtn, closeModalBtn });
+
+  if (!modal || !openModalBtn || !closeModalBtn) return;
+
+  console.log("aaa2", { modal, openModalBtn, closeModalBtn });
+
+  openModalBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    generateModalGallery(works);
+    modal.style.display = "block";
+  });
+
+  closeModalBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
   });
 }
