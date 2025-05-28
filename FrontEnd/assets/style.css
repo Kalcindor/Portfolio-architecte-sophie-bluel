@@ -242,15 +242,21 @@ li:hover {
 }
 
 /*portfolio-header*/
-#portfolio .projects-header {
+#portfolio .portfolio-header {
   width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-#edit-projects-btn {
+.portfolio-header {
+  position: relative;
+}
+
+#edit-projects {
+  position: absolute;
+  top: 18%;
+  left: 62%;
 }
 
 .fa-pen-to-square {
@@ -434,23 +440,47 @@ input[type="submit"] {
 
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
 .modal-content {
-  position: absolute;
   background-color: #fff;
   width: 630px;
   height: 688px;
   top: 660px;
   left: 405px;
   border-radius: 10px;
+}
+
+.modal-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.modal-gallery figure {
+  width: auto;
+  text-align: center;
+}
+
+.modal-gallery img {
+  width: 77px;
+  height: 103px;
+  object-fit: cover;
+}
+
+.black-square {
+  background-color: black;
+  width: 17px;
+  height: 17px;
 }
 
 footer nav ul {

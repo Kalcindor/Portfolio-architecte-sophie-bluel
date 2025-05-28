@@ -131,11 +131,13 @@ function generateModalGallery(works) {
   modalGallery.innerHTML = "";
 
   works.forEach((work) => {
-    const figure = document.createElement("figure");
-    const img = document.createElement("img");
+    let figure = document.createElement("figure");
+    let img = document.createElement("img");
     img.src = work.imageUrl;
+    let div = document.createElement("div");
+    div.classList.add("black-square");
 
-    figure.append(img);
+    figure.append(img, div);
     modalGallery.appendChild(figure);
   });
 }
@@ -154,7 +156,7 @@ function setupModal() {
   openModalBtn.addEventListener("click", function (e) {
     e.preventDefault();
     generateModalGallery(works);
-    modal.style.display = "block";
+    modal.style.display = "flex";
   });
 
   closeModalBtn.addEventListener("click", function () {
