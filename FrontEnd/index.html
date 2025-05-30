@@ -86,9 +86,51 @@
     </main>
     <div id="modal" class="modal">
       <div class="modal-content">
-        <span class="close-btn"></span>
-        <p>Galerie photo</p>
-        <div class="modal-gallery"></div>
+          <i class="fa-solid fa-arrow-left"></i>
+          <p>Galerie photo</p>
+          <i class="fa-solid fa-xmark"></i>
+        <div>
+          <div class="modal-gallery-display">
+            <span class="close-btn"></span>
+          </div>
+          <button id="add-picture">Ajouter une photo</button>
+        </div>
+        <div class="modal-gallery-add">
+          <div id="upload-form">
+      <div class="upload-content">
+        <div class="modal-gallery-add">
+          <form id="add-image-form" enctype="multipart/form-data">
+            <div id="upload-input">
+              <img
+                src="./assets/icons/empty-image.svg"
+                alt="Emplacement image vide"
+              />
+              <input
+                type="file"
+                id="upload-btn"
+                name="upload-btn"
+                accept="image/*"
+                required
+              />
+              <p>jpg, png : 4mo max</p>
+            </div>
+            <label for="title">Titre</label>
+            <input type="text" id="title-input" name="title" required />
+
+            <label for="category-input">Catégorie</label>
+            <select id="category-input" name="category" required>
+              <option value=""></option>
+              <option value="1">Catégorie 1</option>
+              <option value="2">Catégorie 2</option>
+            </select>
+            <div class="bottom-border"></div>
+
+            <button id="validate-upload-btn" type="submit">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+           
       </div>
     </div>
     <footer>

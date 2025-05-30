@@ -124,11 +124,11 @@ function displayFilteredWorks() {
 }
 
 function generateModalGallery(works) {
-  const modalGallery = document.querySelector(".modal-gallery");
+  const modalGalleryDisplay = document.querySelector(".modal-gallery-display");
 
-  if (!modalGallery) return;
+  if (!modalGalleryDisplay) return;
 
-  modalGallery.innerHTML = "";
+  modalGalleryDisplay.innerHTML = "";
 
   works.forEach((work) => {
     let figure = document.createElement("figure");
@@ -136,9 +136,12 @@ function generateModalGallery(works) {
     img.src = work.imageUrl;
     let div = document.createElement("div");
     div.classList.add("black-square");
+    let i = document.createElement("i");
+    i.classList.add("fa-solid", "fa-trash-can");
+    div.appendChild(i);
 
     figure.append(img, div);
-    modalGallery.appendChild(figure);
+    modalGalleryDisplay.appendChild(figure);
   });
 }
 
