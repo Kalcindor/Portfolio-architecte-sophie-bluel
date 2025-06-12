@@ -464,43 +464,46 @@ input[type="submit"] {
   width: 17px;
   height: 17px;
   position: absolute;
-  top: 15px;
-  left: 20px;
+  top: 20px;
+  left: 25px;
+  display: none;
 }
 
 .modal-content .fa-xmark {
   width: 12px;
   height: 12px;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
 }
 
-.modal-content p {
+.modal-content #modal-content-title {
+  width: 173px;
+  height: 30px;
   font: Work sans;
   font-weight: 400;
   font-size: 24px;
   position: absolute;
-  top: 50px;
+  top: 75px;
 }
 
-.modal-gallery-display {
+.modal-gallery {
   width: 435px;
   display: flex;
   /*display: none;*/
   flex-wrap: wrap;
-  /* padding: 20px;*/
   gap: 10px;
+  top: 200px;
 }
 
-.modal-gallery-display figure {
+.modal-gallery figure {
   width: auto;
   text-align: center;
   position: relative;
   margin-bottom: 10px;
 }
 
-.modal-gallery-display img {
+.modal-gallery img {
   width: 77px;
   height: 103px;
   object-fit: cover;
@@ -527,7 +530,7 @@ input[type="submit"] {
   line-height: 1;
 }
 
-#add-picture {
+#add-picture-btn {
   width: 237px;
   height: 36px;
   font-family: "Syne";
@@ -537,9 +540,16 @@ input[type="submit"] {
   background-color: #1d6154;
   text-align: center;
   border-radius: 60px;
-  /*display: none;*/
   border: none;
   outline: none;
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: normal; /* Ajouté pour éviter un mauvais héritage */
+  padding: 0;
 }
 
 footer nav ul {
@@ -561,7 +571,7 @@ footer nav ul {
   /*display: flex;*/
   display: none;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 #upload-input {
@@ -576,10 +586,6 @@ footer nav ul {
   gap: 10px;
 }
 
-input[type="file"] {
-  display: none;
-}
-
 #upload-input img {
   width: 68px;
   height: 60px;
@@ -590,6 +596,31 @@ input[type="file"] {
   height: 36px;
   border-radius: 50px;
   text-decoration: none;
+}
+
+.upload-wrapper {
+  text-align: center;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e5e7eb;
+  border: 2px dashed #9ca3af;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.upload-label:hover {
+  background-color: #d1d5db;
+}
+
+.upload-hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
 }
 
 #title-input,
@@ -612,11 +643,35 @@ input[type="file"] {
   font-weight: 700;
   font-size: 14px;
   color: #fff;
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
+}
+
+#validate-upload-btn.active {
+  background-color: #1d6154;
+  cursor: pointer;
 }
 
 .bottom-border {
   width: 420px;
   border: 1px solid #b3b3b3;
+  position: absolute;
+  bottom: 120px;
+}
+
+#image-preview-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+#image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* End section to add image in modal*/
