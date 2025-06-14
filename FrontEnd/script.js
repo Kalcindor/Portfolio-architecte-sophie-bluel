@@ -48,10 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log("Tableau des catégories", categories);
 
   /*TEST reader */
-
-  const uploadInput = document.getElementById("upload-btn");
-  const imagePreview = document.getElementById("image-preview");
-
+  /*
   uploadInput.addEventListener("change", () => {
     const file = uploadInput.files[0];
     if (!file) return;
@@ -71,13 +68,34 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     reader.readAsDataURL(file);
   });
+*/
+
+  const uploadInput = document.getElementById("upload-btn");
+  const imagePreview = document.getElementById("image-preview");
+  const imagePlaceholder = document.getElementById("image-placeholder");
+  const uploadWrapper = document.querySelector(".upload-wrapper");
+
+  uploadInput.addEventListener("change", () => {
+    const file = uploadInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+      imagePreview.style.display = "block"; // Affiche l'image uploadée
+      imagePlaceholder.style.display = "none"; // Cache le placeholder
+      uploadWrapper.style.display = "none"; // Cache le bouton et le texte
+    };
+
+    reader.readAsDataURL(file);
+  });
 
   //Functions call to manage the gallery
   generateGallery(works);
   generateFiltersBtn(categories);
   displayFilteredWorks();
   setupModal();
-  // Appelle cette fonction au chargement de la page ou de la modale
   setupModalSwitch();
   setupAddImageForm(categories);
 });
@@ -95,13 +113,12 @@ async function postNewImage(imageFile, title, category) {
   formData.append("title", title);
   formData.append("category", category);
 
-  const token = sessionStorage.getItem("token"); // récupération du token
+  const token = sessionStorage.getItem("token");
 
   const response = await fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`, // Authentification ici
-      // Ne surtout PAS ajouter Content-Type ici, sinon le boundary est cassé
+      Authorization: `Bearer ${token}`,
     },
     body: formData,
   });
@@ -121,7 +138,7 @@ function generateGallery(works) {
     const figureElement = document.createElement("figure");
     const imageElement = document.createElement("img");
     imageElement.src = figure.imageUrl;
-    imageElement.classList.add("gallery-img");
+    imageElement.classList.add("img");
     const captionElement = document.createElement("figcaption");
     captionElement.innerText = figure.title;
 
@@ -177,7 +194,6 @@ function displayFilteredWorks() {
   });
 }
 
-/*
 function generateModalGallery(works) {
   const modalGallery = document.querySelector(".modal-gallery");
 
@@ -191,36 +207,9 @@ function generateModalGallery(works) {
     img.src = work.imageUrl;
     let div = document.createElement("div");
     div.classList.add("black-square");
-    let i = document.createElement("i");
-    i.classList.add("fa-solid", "fa-trash-can");
-    div.appendChild(i);
-
-    figure.append(img, div);
-    modalGallery.appendChild(figure);
-    figure.dataset.categoryId = work.categoryId;
-    figure.dataset.id = work.id;
-
-    console.log("modal figures", figure);
-  });
-}
-  */
-
-function generateModalGallery(works) {
-  const modalGallery = document.querySelector(".modal-gallery");
-
-  if (!modalGallery) return;
-
-  modalGallery.innerHTML = "";
-
-  works.forEach((work) => {
-    let figure = document.createElement("figure");
-    let img = document.createElement("img");
-    img.src = work.imageUrl;
-    let div = document.createElement("div");
-    div.classList.add("black-square");
-    let i = document.createElement("i");
-    i.classList.add("fa-solid", "fa-trash-can");
-    div.appendChild(i);
+    let icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-trash-can");
+    div.appendChild(icon);
 
     figure.append(img, div);
     modalGallery.appendChild(figure);
@@ -228,7 +217,7 @@ function generateModalGallery(works) {
     figure.dataset.id = work.id;
 
     // add manage image deletion
-    i.addEventListener("click", async () => {
+    icon.addEventListener("click", async () => {
       if (confirm("Voulez-vous vraiment supprimer cette image ?")) {
         try {
           await deleteImageById(work.id);

@@ -94,7 +94,8 @@
           <button id="add-picture-btn">Ajouter une photo</button>
           <form id="add-image-form" enctype="multipart/form-data">
             <div id="upload-input">
-  <img src="./assets/icons/empty-image.svg" alt="Emplacement image vide" id="image-preview" />
+  <img src="./assets/icons/empty-image.svg" alt="Emplacement image vide" id="image-placeholder" />
+  <img id="image-preview" class="hidden" />
  <!-- <input type="file" id="upload-btn" name="upload-btn" accept="image/*" required />-->
   
   <div class="upload-wrapper">
@@ -107,8 +108,11 @@
             <label for="title">Titre</label>
             <input type="text" id="title-input" name="title" required />
             <label for="category-input">Catégorie</label>
+			<div class="select-wrapper">
             <select id="category-input" name="category" required>
             </select>
+			 <i class="fa-solid fa-chevron-down"></i>
+			</div>
             <div class="bottom-border"></div>
             <button id="validate-upload-btn" type="submit">Valider</button>
           </form>

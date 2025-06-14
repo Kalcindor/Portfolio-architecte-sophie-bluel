@@ -586,7 +586,7 @@ footer nav ul {
   gap: 10px;
 }
 
-#upload-input img {
+#image-placeholder {
   width: 68px;
   height: 60px;
 }
@@ -606,10 +606,10 @@ footer nav ul {
   display: inline-block;
   padding: 10px 20px;
   background-color: #e5e7eb;
-  border: 2px dashed #9ca3af;
+  color: #306685;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 50px;
   transition: background-color 0.2s ease;
 }
 
@@ -618,8 +618,9 @@ footer nav ul {
 }
 
 .upload-hint {
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: 10px;
+  font-weight: 400;
+  color: #444444;
   margin-top: 0.5rem;
 }
 
@@ -669,9 +670,40 @@ footer nav ul {
 }
 
 #image-preview {
+  display: none;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  width: 129px;
+  height: 170px;
+  /* ou la hauteur que tu veux */
   object-fit: cover;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* padding right pour laisser la place à la flèche */
+  font-size: 1rem;
+  color: #444444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none; /* supprime la flèche native */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.select-wrapper i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* ne bloque pas le clic sur le select */
+  color: #444444;
 }
 
 /* End section to add image in modal*/
